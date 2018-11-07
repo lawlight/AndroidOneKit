@@ -72,6 +72,7 @@ public class DialogKit {
             mToast = Toast.makeText(mContext, text, Toast.LENGTH_SHORT);
         } else {
             mToast.setText(text);
+            mToast.setDuration(Toast.LENGTH_SHORT);
         }
         mToast.show();
     }

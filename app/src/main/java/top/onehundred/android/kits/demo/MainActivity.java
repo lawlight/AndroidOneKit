@@ -11,6 +11,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import liupeng.ademo.R;
 import top.onehundred.android.kits.demo.activities.AppSystemActivity;
+import top.onehundred.android.kits.demo.activities.DialogActivity;
 import top.onehundred.android.kits.demo.activities.IntentActivity;
 import top.onehundred.android.kits.ok;
 
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, AppSystemActivity.class));
                 break;
             case R.id.btn_dialog:
+                startActivity(new Intent(this, DialogActivity.class));
                 break;
             case R.id.btn_datetime:
                 break;

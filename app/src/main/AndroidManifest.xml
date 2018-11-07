@@ -29,7 +29,8 @@
         </activity>
         <activity android:name="top.onehundred.android.kits.demo.activities.AppSystemActivity" />
         <activity android:name="top.onehundred.android.kits.demo.activities.IntentActivity" />
-        <activity android:name="top.onehundred.android.kits.demo.activities.DialogActivity"></activity>
+        <activity android:name="top.onehundred.android.kits.demo.activities.DialogActivity" />
+        <activity android:name="top.onehundred.android.kits.demo.activities.DensityActivity"></activity>
     </application>
 
 </manifest>
