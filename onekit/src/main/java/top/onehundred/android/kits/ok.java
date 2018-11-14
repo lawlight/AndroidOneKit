@@ -4,11 +4,20 @@ import android.app.Application;
 import android.content.Context;
 
 import top.onehundred.android.kits.kits.AppKit;
+import top.onehundred.android.kits.kits.DatetimeKit;
+import top.onehundred.android.kits.kits.DensityKit;
 import top.onehundred.android.kits.kits.DialogKit;
+import top.onehundred.android.kits.kits.EncryptKit;
 import top.onehundred.android.kits.kits.IntentKit;
+import top.onehundred.android.kits.kits.PhoneStateKit;
+import top.onehundred.android.kits.kits.ScreenKit;
 import top.onehundred.android.kits.kits.StringKit;
 import top.onehundred.android.kits.kits.SystemKit;
+import top.onehundred.android.kits.kits.ViewKit;
 
+/**
+ * onekit 工具库的导航类，可以从此类调用，也可以单独使用每个工具包
+ */
 public class ok {
 
     private static Application mApplication;
@@ -30,11 +39,27 @@ public class ok {
     }
 
     /**
-     * 字符串工具包
+     * App信息工具包
      * @return
      */
-    public static StringKit stringKit(){
-        return StringKit.getInstance();
+    public static AppKit appKit() {
+        return AppKit.getInstance();
+    }
+
+    /**
+     * 日期时间工具包
+     * @return
+     */
+    public static DatetimeKit datetimeKit() {
+        return DatetimeKit.getInstance();
+    }
+
+    /**
+     * 像素密度工具包
+     * @return
+     */
+    public static DensityKit densityKit() {
+        return DensityKit.getInstance();
     }
 
     /**
@@ -47,11 +72,43 @@ public class ok {
     }
 
     /**
-     * App信息工具包
+     * 加密工具包
      * @return
      */
-    public static AppKit appKit() {
-        return AppKit.getInstance();
+    public static EncryptKit encryptKit() {
+        return EncryptKit.getInstance();
+    }
+
+    /**
+     * 系统应用工具包
+     * @param context
+     * @return
+     */
+    public static IntentKit intentKit(Context context){
+        return IntentKit.getInstance(context);
+    }
+
+    /**
+     * 手机状态工具包
+     * @return
+     */
+    public static PhoneStateKit phoneStateKit() {
+        return PhoneStateKit.getInstance();
+    }
+
+    /**
+     * 屏幕工具包
+     * @return
+     */
+    public static ScreenKit screenKit() {
+        return ScreenKit.getInstance();
+    }
+    /**
+     * 字符串工具包
+     * @return
+     */
+    public static StringKit stringKit(){
+        return StringKit.getInstance();
     }
 
     /**
@@ -63,12 +120,11 @@ public class ok {
     }
 
     /**
-     * 系统应用工具包
-     * @param context
+     * 视图工具包
      * @return
      */
-    public static IntentKit intentKit(Context context){
-        return IntentKit.getInstance(context);
+    public static ViewKit viewKit(){
+        return ViewKit.getInstance();
     }
 
 

@@ -5,10 +5,21 @@ import android.content.pm.PackageManager;
 
 import top.onehundred.android.kits.ok;
 
+/**
+ * 应用信息工具类
+ */
 public class AppKit {
 
+    private static AppKit appKit;
     public static AppKit getInstance(){
-        return new AppKit();
+        if(appKit == null){
+            synchronized (AppKit.class){
+                if(appKit == null){
+                    appKit = new AppKit();
+                }
+            }
+        }
+        return appKit;
     }
 
     private PackageInfo getPackageInfo() throws PackageManager.NameNotFoundException {

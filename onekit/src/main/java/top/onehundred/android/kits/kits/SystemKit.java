@@ -9,10 +9,21 @@ import java.util.Locale;
 
 import top.onehundred.android.kits.ok;
 
+/**
+ * 系统信息工具类
+ */
 public class SystemKit {
 
+    private static SystemKit systemKit;
     public static SystemKit getInstance(){
-        return new SystemKit();
+        if(systemKit == null){
+            synchronized (SystemKit.class){
+                if(systemKit == null){
+                    systemKit = new SystemKit();
+                }
+            }
+        }
+        return systemKit;
     }
 
     /**

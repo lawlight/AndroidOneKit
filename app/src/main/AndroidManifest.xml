@@ -30,7 +30,9 @@
         <activity android:name="top.onehundred.android.kits.demo.activities.AppSystemActivity" />
         <activity android:name="top.onehundred.android.kits.demo.activities.IntentActivity" />
         <activity android:name="top.onehundred.android.kits.demo.activities.DialogActivity" />
-        <activity android:name="top.onehundred.android.kits.demo.activities.DensityActivity"></activity>
+        <activity android:name="top.onehundred.android.kits.demo.activities.DensityActivity" />
+        <activity android:name="top.onehundred.android.kits.demo.activities.EncryptActivity" />
+        <activity android:name="top.onehundred.android.kits.demo.activities.DatetimeActivity"></activity>
     </application>
 
 </manifest>

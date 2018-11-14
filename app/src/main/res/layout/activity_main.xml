@@ -43,6 +43,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="IntentKit(系统应用跳转工具)" />
+
+            <Button
+                android:textAllCaps="false"
+                android:id="@+id/btn_encytpt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="EncryptKit(加密解密工具)" />
         </LinearLayout>
     </ScrollView>
 

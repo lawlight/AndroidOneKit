@@ -5,10 +5,22 @@ import android.util.TypedValue;
 
 import top.onehundred.android.kits.ok;
 
+/**
+ * 像素密度工具类
+ */
 public class DensityKit {
 
+    private static DensityKit densityKit;
+
     public static DensityKit getInstance(){
-        return new DensityKit();
+        if(densityKit == null){
+            synchronized (DensityKit.class){
+                if(densityKit == null){
+                    densityKit = new DensityKit();
+                }
+            }
+        }
+        return densityKit;
     }
 
     /**

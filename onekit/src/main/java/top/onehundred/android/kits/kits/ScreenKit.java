@@ -10,10 +10,21 @@ import android.view.WindowManager;
 
 import top.onehundred.android.kits.ok;
 
+/**
+ * 屏幕相关方法工具包
+ */
 public class ScreenKit {
 
+    private static ScreenKit screenKit;
     public static ScreenKit getInstance(){
-        return new ScreenKit();
+        if(screenKit == null){
+            synchronized (ScreenKit.class){
+                if(screenKit == null){
+                    screenKit = new ScreenKit();
+                }
+            }
+        }
+        return screenKit;
     }
 
     /**

@@ -12,6 +12,7 @@ import butterknife.OnClick;
 import liupeng.ademo.R;
 import top.onehundred.android.kits.demo.activities.AppSystemActivity;
 import top.onehundred.android.kits.demo.activities.DialogActivity;
+import top.onehundred.android.kits.demo.activities.EncryptActivity;
 import top.onehundred.android.kits.demo.activities.IntentActivity;
 import top.onehundred.android.kits.ok;
 
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @OnClick({R.id.btn_app, R.id.btn_dialog, R.id.btn_datetime, R.id.btn_intents})
+    @OnClick({R.id.btn_app, R.id.btn_dialog, R.id.btn_datetime, R.id.btn_intents, R.id.btn_encytpt})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_app:
@@ -46,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_intents:
                 startActivity(new Intent(this, IntentActivity.class));
+                break;
+            case R.id.btn_encytpt:
+                startActivity(new Intent(this, EncryptActivity.class));
                 break;
         }
     }

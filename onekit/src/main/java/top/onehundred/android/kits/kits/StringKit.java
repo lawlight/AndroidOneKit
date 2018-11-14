@@ -1,5 +1,6 @@
 package top.onehundred.android.kits.kits;
 
+import android.content.SyncContext;
 import android.text.TextUtils;
 
 /**
@@ -7,8 +8,16 @@ import android.text.TextUtils;
  */
 public class StringKit {
 
+    private static StringKit stringKit;
     public static StringKit getInstance(){
-        return new StringKit();
+        if(stringKit == null){
+            synchronized (StringKit.class){
+                if(stringKit == null){
+                    stringKit = new StringKit();
+                }
+            }
+        }
+        return stringKit;
     }
 
     /**

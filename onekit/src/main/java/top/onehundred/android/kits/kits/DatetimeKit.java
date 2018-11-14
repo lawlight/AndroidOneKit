@@ -8,10 +8,19 @@ import java.util.Date;
  */
 public class DatetimeKit {
 
-    private String defaultFormat = "yyyy-MM-dd HH:mm:ss";
+    private static String defaultFormat = "yyyy-MM-dd HH:mm:ss";
 
-    public static DatetimeKit getInstant(){
-        return new DatetimeKit();
+    private static DatetimeKit datetimeKit;
+
+    public static DatetimeKit getInstance(){
+        if(datetimeKit == null){
+            synchronized (DatetimeKit.class){
+                if(datetimeKit == null){
+                    datetimeKit = new DatetimeKit();
+                }
+            }
+        }
+        return datetimeKit;
     }
 
     public String date2Str(Date date, String format){

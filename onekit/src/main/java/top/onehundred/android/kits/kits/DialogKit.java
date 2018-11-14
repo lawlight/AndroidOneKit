@@ -18,7 +18,11 @@ public class DialogKit {
 
     public static DialogKit getInstance(Context context) {
         if (dialogKit == null) {
-            dialogKit = new DialogKit();
+            synchronized (DialogKit.class){
+                if(dialogKit == null){
+                    dialogKit = new DialogKit();
+                }
+            }
         }
         dialogKit.mContext = context;
         return dialogKit;
@@ -97,6 +101,7 @@ public class DialogKit {
         if (mContext == null) {
             return;
         }
+        dismissProgressDialog();
         mProgressDialog = ProgressDialog.show(mContext, title, message);
         mProgressDialog.setCancelable(cancelable);
         mProgressDialog.setCanceledOnTouchOutside(cancelable);

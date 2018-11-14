@@ -7,16 +7,23 @@ import android.content.Intent;
 import android.net.Uri;
 import android.provider.ContactsContract;
 
+/**
+ * 系统应用跳转工具包
+ */
 public class IntentKit {
 
     Context context;
 
-    public IntentKit(Context context) {
-        this.context = context;
-    }
-
+    private static IntentKit intentKit;
     public static IntentKit getInstance(Context context){
-        IntentKit intentKit = new IntentKit(context);
+        if(intentKit == null){
+            synchronized (IntentKit.class){
+                if(intentKit == null){
+                    intentKit = new IntentKit();
+                }
+            }
+        }
+        intentKit.context = context;
         return intentKit;
     }
 

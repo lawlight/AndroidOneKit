@@ -32,6 +32,10 @@ public class AppSystemActivity extends AppCompatActivity {
         tvInfo.append("serial: " + ok.systemKit().getSerial() + "\n");
 
         tvInfo.append("language: " + ok.systemKit().getLanguage() + "\n");
-        tvInfo.append("country: " + ok.systemKit().getCountry());
+        tvInfo.append("country: " + ok.systemKit().getCountry() + "\n\n");
+
+        tvInfo.append("net state: " + (ok.phoneStateKit().isConnected() ? "网络已连接，" : "网络未连接，") + (ok.phoneStateKit().isWifi() ? "wifi连接。" : "无wifi连接。") + "\n\n");
+
+        //tvInfo.append("battery: " + ok.phoneStateKit().batteryState(null) + "\n\n");
     }
 }
