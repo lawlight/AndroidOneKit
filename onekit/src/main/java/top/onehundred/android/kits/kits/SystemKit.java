@@ -6,6 +6,7 @@ import android.os.Build;
 import android.provider.Settings;
 
 import java.util.Locale;
+import java.util.TimeZone;
 
 import top.onehundred.android.kits.ok;
 
@@ -86,4 +87,16 @@ public class SystemKit {
         Configuration config = res.getConfiguration();
         return config.locale.getCountry();
     }
+
+    /**
+     * 获取当前时区
+     * @return
+     */
+    public String getCurrentTimeZone() {
+        TimeZone tz = TimeZone.getDefault();
+        String strTz = tz.getDisplayName(false, TimeZone.SHORT);
+        return strTz;
+
+    }
+
 }
