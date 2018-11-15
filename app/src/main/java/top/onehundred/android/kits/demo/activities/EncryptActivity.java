@@ -9,7 +9,7 @@ import android.widget.EditText;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import liupeng.ademo.R;
+import top.onehundred.android.kits.demo.R;
 import top.onehundred.android.kits.ok;
 
 public class EncryptActivity extends AppCompatActivity {

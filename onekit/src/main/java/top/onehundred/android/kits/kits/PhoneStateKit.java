@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.BatteryManager;
 
 import top.onehundred.android.kits.ok;
 
@@ -16,10 +17,11 @@ import top.onehundred.android.kits.ok;
 public class PhoneStateKit {
 
     private static PhoneStateKit phoneStateKit;
-    public static PhoneStateKit getInstance(){
-        if(phoneStateKit == null){
-            synchronized (PhoneStateKit.class){
-                if(phoneStateKit == null){
+
+    public static PhoneStateKit getInstance() {
+        if (phoneStateKit == null) {
+            synchronized (PhoneStateKit.class) {
+                if (phoneStateKit == null) {
                     phoneStateKit = new PhoneStateKit();
                 }
             }
@@ -60,29 +62,64 @@ public class PhoneStateKit {
 
     }
 
-//    public interface BatteryStateReceiver{
-//        void onBatteryStateReceived();
-//    }
-//
-//    public String batteryState(BatteryStateReceiver receiver){
-//        IntentFilter iFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
-//        Intent intent = ok.app().registerReceiver(null, iFilter);
-//        int rawLevel = intent.getIntExtra("level", 0);      //获得当前电量
-//        int scale = intent.getIntExtra("scale", 0);         //获得总电量
-//        //BatteryManager.BATTERY_STATUS_UNKNOWN
-//        int status = intent.getIntExtra("status", 0);       //电池充电状态
-//        int health = intent.getIntExtra("voltage", 0);      //电池健康状况
-//        int batteryV = intent.getIntExtra("voltage", 0);    //电池电压(mv)
-//        int temperature = intent.getIntExtra("temperature", 0); //电池温度(数值)
-//        double t = temperature / 10.0;  //电池摄氏温度，默认获取的非摄氏温度值，需做一下运算转换
-//        String targetStr = "";
-//        int level = -1;
-//        if(rawLevel > 0 && scale > 0)
-//        {
-//            level = (rawLevel * 100) / scale;
-//            targetStr = level + "|" + scale + "|" + status;
-//        }
-//        return targetStr;
-//    }
+    /**
+     * 电池状态类
+     */
+    public class BatteryState {
+        public int percent = 0;
+        public int level;
+        public int scale;
+        public int status;
+        public int plugged;
+        public int health;
+        public int voltage;
+        public double temperature;
+    }
+
+    /**
+     *  电池充电状态
+     *  public static final int BATTERY_STATUS_UNKNOWN = 1;  未知状态
+     *  public static final int BATTERY_STATUS_CHARGING = 2; 充电中
+     *  public static final int BATTERY_STATUS_DISCHARGING = 3; 放电中
+     *  public static final int BATTERY_STATUS_NOT_CHARGING = 4; 未纯电
+     *  public static final int BATTERY_STATUS_FULL = 5; 电满状态
+     */
+    /**
+     * 电池充电方式
+     *  public static final int BATTERY_PLUGGED_USB = 2; USB充电
+     *  public static final int BATTERY_PLUGGED_WIRELESS = 4; 无线充电
+     *  public static final int BATTERY_PLUGGED_AC = 1; AC充电，交流电充电
+     */
+    /**
+     *  public static final int BATTERY_HEALTH_UNKNOWN = 1;    健康状态未知
+     *  public static final int BATTERY_HEALTH_GOOD = 2;    健康
+     *  public static final int BATTERY_HEALTH_OVERHEAT = 3;  过热
+     *  public static final int BATTERY_HEALTH_DEAD = 4;    没电
+     *  public static final int BATTERY_HEALTH_OVER_VOLTAGE = 5;  过电压
+     *  public static final int BATTERY_HEALTH_UNSPECIFIED_FAILURE = 6; 未定义错误
+     *  public static final int BATTERY_HEALTH_COLD = 7; 冷却
+     */
+
+    /**
+     * 获取电池状态
+     * @return
+     */
+    public BatteryState getBatteryState() {
+        IntentFilter iFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+        Intent intent = ok.app().registerReceiver(null, iFilter);
+        BatteryState bs = new BatteryState();
+        bs.level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);      //获得当前电量
+        bs.scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, 0);         //获得总电量
+        bs.status = intent.getIntExtra(BatteryManager.EXTRA_STATUS, BatteryManager.BATTERY_STATUS_UNKNOWN);       //电池充电状态
+        bs.plugged = intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);        //电池充电方式
+        bs.health = intent.getIntExtra(BatteryManager.EXTRA_HEALTH, BatteryManager.BATTERY_HEALTH_UNKNOWN);      //电池健康状况
+        bs.voltage = intent.getIntExtra(BatteryManager.EXTRA_VOLTAGE, 0);    //电池电压(mv)
+        bs.temperature = intent.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, 0) / 10.0; //电池温度(数值)，默认获取的非摄氏温度值，需做一下运算转换
+
+        if (bs.level > 0 && bs.scale > 0) {
+            bs.percent = (bs.level * 100) / bs.scale;
+        }
+        return bs;
+    }
 
 }

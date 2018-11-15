@@ -7,7 +7,7 @@ import android.view.View;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import liupeng.ademo.R;
+import top.onehundred.android.kits.demo.R;
 import top.onehundred.android.kits.ok;
 
 public class IntentActivity extends AppCompatActivity {

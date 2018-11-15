@@ -6,7 +6,8 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import liupeng.ademo.R;
+import top.onehundred.android.kits.demo.R;
+import top.onehundred.android.kits.kits.PhoneStateKit;
 import top.onehundred.android.kits.ok;
 
 public class AppSystemActivity extends AppCompatActivity {
@@ -36,6 +37,14 @@ public class AppSystemActivity extends AppCompatActivity {
 
         tvInfo.append("net state: " + (ok.phoneStateKit().isConnected() ? "网络已连接，" : "网络未连接，") + (ok.phoneStateKit().isWifi() ? "wifi连接。" : "无wifi连接。") + "\n\n");
 
-        //tvInfo.append("battery: " + ok.phoneStateKit().batteryState(null) + "\n\n");
+        PhoneStateKit.BatteryState bs = ok.phoneStateKit().getBatteryState();
+        tvInfo.append("电池使用率: " + bs.percent + "%\n");
+        tvInfo.append("电池已使用：" + bs.level + "\n");
+        tvInfo.append("电池总电量：" + bs.scale + "\n");
+        tvInfo.append("电池充电状态：" + bs.status + "\n");
+        tvInfo.append("电池充电方式：" + bs.plugged + "\n");
+        tvInfo.append("电池健康状态：" + bs.health + "\n");
+        tvInfo.append("电池电压：" + bs.voltage + "mV\n");
+        tvInfo.append("电池温度：" + bs.temperature + "℃\n");
     }
 }

@@ -3,7 +3,8 @@ package top.onehundred.android.kits.demo.activities;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import liupeng.ademo.R;
+import top.onehundred.android.kits.demo.R;
+
 
 public class DatetimeActivity extends AppCompatActivity {
 

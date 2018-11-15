@@ -9,8 +9,9 @@ import android.widget.Button;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import liupeng.ademo.R;
 import top.onehundred.android.kits.demo.activities.AppSystemActivity;
+import top.onehundred.android.kits.demo.activities.DatetimeActivity;
+import top.onehundred.android.kits.demo.activities.DensityActivity;
 import top.onehundred.android.kits.demo.activities.DialogActivity;
 import top.onehundred.android.kits.demo.activities.EncryptActivity;
 import top.onehundred.android.kits.demo.activities.IntentActivity;
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @OnClick({R.id.btn_app, R.id.btn_dialog, R.id.btn_datetime, R.id.btn_intents, R.id.btn_encytpt})
+    @OnClick({R.id.btn_app, R.id.btn_dialog, R.id.btn_datetime, R.id.btn_intents, R.id.btn_encytpt, R.id.btn_density})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_app:
@@ -44,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, DialogActivity.class));
                 break;
             case R.id.btn_datetime:
+                startActivity(new Intent(this, DatetimeActivity.class));
+                break;
+            case R.id.btn_density:
+                startActivity(new Intent(this, DensityActivity.class));
                 break;
             case R.id.btn_intents:
                 startActivity(new Intent(this, IntentActivity.class));
