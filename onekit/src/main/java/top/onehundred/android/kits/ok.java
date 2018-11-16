@@ -9,6 +9,7 @@ import top.onehundred.android.kits.kits.DensityKit;
 import top.onehundred.android.kits.kits.DialogKit;
 import top.onehundred.android.kits.kits.EncryptKit;
 import top.onehundred.android.kits.kits.IntentKit;
+import top.onehundred.android.kits.kits.ListKit;
 import top.onehundred.android.kits.kits.PhoneStateKit;
 import top.onehundred.android.kits.kits.ScreenKit;
 import top.onehundred.android.kits.kits.StringKit;
@@ -86,6 +87,14 @@ public class ok {
      */
     public static IntentKit intentKit(Context context){
         return IntentKit.getInstance(context);
+    }
+
+    /**
+     * 列表操作工具包
+     * @return
+     */
+    public static ListKit listKit(){
+        return ListKit.getInstance();
     }
 
     /**
