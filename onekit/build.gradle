@@ -18,11 +18,20 @@ android {
         }
     }
 
+    task makeJar(type: proguard.gradle.ProGuardTask, dependsOn: "build") {
+        //项目编译但未混淆的jar
+        injars 'build/intermediates/intermediate-jars/release/classes.jar'
+
+        //混淆后的jar路径
+        outjars 'jar/onekit_v' + defaultConfig.versionName + '(build' + defaultConfig.versionCode + ').jar'
+
+        // 混淆配置文件
+        configuration 'proguard-rules.pro'
+    }
+
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:28.0.0'
-
 }

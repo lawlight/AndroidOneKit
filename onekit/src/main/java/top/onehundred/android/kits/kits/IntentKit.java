@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.provider.ContactsContract;
+import android.provider.Settings;
 
 /**
  * 系统应用跳转工具包
@@ -122,6 +123,13 @@ public class IntentKit {
     public void showContacts() {
         Intent intent = new Intent(Intent.ACTION_VIEW, ContactsContract.Contacts.CONTENT_URI);
         context.startActivity(intent);
+    }
+
+    /**
+     * 跳转到系统设置界面
+     */
+    public void showSettings(){
+        context.startActivity(new Intent(Settings.ACTION_SETTINGS));
     }
 
     /**

@@ -24,6 +24,22 @@ public class DensityKit {
     }
 
     /**
+     * 获取dp密度值
+     * @return
+     */
+    public float getDensity(){
+        return ok.app().getResources().getDisplayMetrics().density;
+    }
+
+    /**
+     * 获取字体sp密度值
+     * @return
+     */
+    public float getScaleDensity(){
+        return ok.app().getResources().getDisplayMetrics().scaledDensity;
+    }
+
+    /**
      * dp转px
      *
      * @param dpVal dp值
@@ -52,8 +68,7 @@ public class DensityKit {
      * @return dp值
      */
     public float px2dp(float pxVal) {
-        final float scale = ok.app().getResources().getDisplayMetrics().density;
-        return (pxVal / scale);
+        return (pxVal / getDensity());
     }
 
     /**
@@ -63,6 +78,6 @@ public class DensityKit {
      * @return sp值
      */
     public float px2sp(float pxVal) {
-        return (pxVal / ok.app().getResources().getDisplayMetrics().scaledDensity);
+        return (pxVal / getScaleDensity());
     }
 }

@@ -32,7 +32,7 @@ public class ScreenKit {
      *
      * @return
      */
-    public static int getScreenWidth() {
+    public int getScreenWidth() {
         WindowManager wm = (WindowManager) ok.app().getSystemService(ok.app().WINDOW_SERVICE);
         DisplayMetrics outMetrics = new DisplayMetrics();
         wm.getDefaultDisplay().getMetrics(outMetrics);
@@ -44,7 +44,7 @@ public class ScreenKit {
      *
      * @return
      */
-    public static int getScreenHeight() {
+    public int getScreenHeight() {
         WindowManager wm = (WindowManager) ok.app().getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics outMetrics = new DisplayMetrics();
         wm.getDefaultDisplay().getMetrics(outMetrics);
@@ -56,7 +56,7 @@ public class ScreenKit {
      *
      * @return
      */
-    public static int getStatusBarHeight() {
+    public int getStatusBarHeight() {
         int statusHeight = -1;
         try {
             Class<?> clazz = Class.forName("com.android.internal.R$dimen");
@@ -75,7 +75,7 @@ public class ScreenKit {
      * @param activity
      * @return
      */
-    public static Bitmap snapShotWithStatusBar(Activity activity) {
+    public Bitmap snapShotWithStatusBar(Activity activity) {
         View view = activity.getWindow().getDecorView();
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache();
@@ -95,7 +95,7 @@ public class ScreenKit {
      * @param activity
      * @return
      */
-    public static Bitmap snapShotWithoutStatusBar(Activity activity) {
+    public Bitmap snapShotWithoutStatusBar(Activity activity) {
         View view = activity.getWindow().getDecorView();
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache();

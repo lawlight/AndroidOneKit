@@ -19,10 +19,10 @@ public class DatetimeKit {
 
     private static DatetimeKit datetimeKit;
 
-    public static DatetimeKit getInstance(){
-        if(datetimeKit == null){
-            synchronized (DatetimeKit.class){
-                if(datetimeKit == null){
+    public static DatetimeKit getInstance() {
+        if (datetimeKit == null) {
+            synchronized (DatetimeKit.class) {
+                if (datetimeKit == null) {
                     datetimeKit = new DatetimeKit();
                 }
             }
@@ -32,42 +32,34 @@ public class DatetimeKit {
 
     /**
      * 获取当前时间时间戳
+     *
      * @return
      */
-    public long getTime(){
+    public long getTime() {
         return new Date().getTime();
     }
 
     /**
      * 获取秒单位时间戳
+     *
      * @return
      */
-    public long getUnixTime(){
+    public long getUnixTime() {
         return new Date().getTime() / 1000L;
     }
 
     /**
-     * 获取GMT格式时间字符串
-     * @return
-     */
-    public String getGMTTime(){
-        Calendar cd = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("EEE d MMM yyyy HH:mm:ss 'GMT'", java.util.Locale.US);
-        sdf.setTimeZone(java.util.TimeZone.getTimeZone("GMT"));
-        return sdf.format(cd.getTime());
-    }
-
-    /**
      * Date对象转String
-     * @param date 时间，默认为当前时间
+     *
+     * @param date   时间，默认为当前时间
      * @param format 格式，默认为yyyy-MM-dd HH:mm:ss
      * @return
      */
-    public String date2Str(Date date, String format){
+    public String date2Str(Date date, String format) {
         if (date == null) {
             date = new Date();
         }
-        if(format == null){
+        if (format == null) {
             format = defaultFormat;
         }
         SimpleDateFormat simpleFormat = new SimpleDateFormat(format);
@@ -75,13 +67,12 @@ public class DatetimeKit {
     }
 
     /**
-     *
      * @param text
      * @param format 格式，默认为yyyy-MM-dd HH:mm:ss
      * @return
      */
     public Date str2Date(String text, String format) {
-        if(format == null){
+        if (format == null) {
             format = defaultFormat;
         }
         SimpleDateFormat sdf = new SimpleDateFormat(format);
@@ -93,13 +84,12 @@ public class DatetimeKit {
     }
 
     /**
-     *
      * @param calendar
-     * @param format 格式，默认为yyyy-MM-dd HH:mm:ss
+     * @param format   格式，默认为yyyy-MM-dd HH:mm:ss
      * @return
      */
-    public String Calendar2Str(Calendar calendar, String format){
-        if(calendar == null){
+    public String calendar2Str(Calendar calendar, String format) {
+        if (calendar == null) {
             calendar = Calendar.getInstance();
         }
         return date2Str(calendar.getTime(), format);
@@ -107,13 +97,14 @@ public class DatetimeKit {
 
     /**
      * 时间字符串转为Calendar对象
+     *
      * @param text
      * @param format 格式，默认为yyyy-MM-dd HH:mm:ss
      * @return
      */
     public Calendar str2Calendar(String text, String format) {
         Date date = str2Date(text, format);
-        if(date == null){
+        if (date == null) {
             return null;
         }
         Calendar calendar = Calendar.getInstance();
@@ -122,10 +113,36 @@ public class DatetimeKit {
     }
 
     /**
+     * Calendar转Date
+     *
+     * @param calendar
+     * @return
+     */
+    public Date calendar2Date(Calendar calendar) {
+        if (calendar == null) {
+            return null;
+        }
+        return calendar.getTime();
+    }
+
+    /**
+     * Date转Calendar
+     *
+     * @param date
+     * @return
+     */
+    public Calendar date2Calendar(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar;
+    }
+
+    /**
      * 格式化时间字符串
+     *
      * @param text 时间文本
      * @param from 原格式
-     * @param to 目标格式
+     * @param to   目标格式
      * @return
      */
     public String formatDatetime(String text, String from, String to) {
@@ -141,17 +158,60 @@ public class DatetimeKit {
     }
 
     /**
+     * 获取指定月份的天数
+     *
+     * @param year  年份
+     * @param month 月份
+     * @return 对应天数
+     */
+    public int daysOfMonth(int year, int month) {
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                return 31;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                return 30;
+            case 2:
+                if (isLeapYear(year)) {
+                    return 29;
+                } else {
+                    return 28;
+                }
+            default:
+                return -1;
+        }
+    }
+
+    /**
+     * 判断是否闰年
+     * @param year 年份
+     * @return 是否闰年
+     */
+    public Boolean isLeapYear(int year) {
+        return ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0);
+    }
+
+    /**
      * 获取输入时间的时间段描述：<br/>
      * 1分钟内显示刚刚<br/>
      * 1小时内显示XX分钟前<br/>
      * 1天内显示XX小时前<br/>
      * 超过一天按照format格式显示日期
-     * @param date 时间，如果date传null，返回空字符串
+     *
+     * @param date   时间，如果date传null，返回空字符串
      * @param format 格式，默认为yyyy-MM-dd HH:mm:ss
      * @return
      */
     public String getTimeDesc(Date date, String format) {
-        if(date == null){
+        if (date == null) {
             return "";
         }
         Date nowDate = new Date();
@@ -171,12 +231,13 @@ public class DatetimeKit {
 
     /**
      * 显示系统日期选择对话框
+     *
      * @param context
-     * @param calendar 默认日期
+     * @param calendar          默认日期
      * @param onDateSetListener 回调监听
      */
-    public void showDatePickerDialog(Context context, Calendar calendar,DatePickerDialog.OnDateSetListener onDateSetListener){
-        if(calendar == null){
+    public void showDatePickerDialog(Context context, Calendar calendar, DatePickerDialog.OnDateSetListener onDateSetListener) {
+        if (calendar == null) {
             calendar = Calendar.getInstance();
         }
         DatePickerDialog dialog = new DatePickerDialog(context, onDateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
@@ -185,15 +246,16 @@ public class DatetimeKit {
 
     /**
      * 显示系统时间选择对话框
+     *
      * @param context
-     * @param calendar 默认时间
+     * @param calendar          默认时间
      * @param onTimeSetListener 回调监听
      */
-    public void showTimePickerDialog(Context context, Calendar calendar, TimePickerDialog.OnTimeSetListener onTimeSetListener){
-        if(calendar == null){
+    public void showTimePickerDialog(Context context, Calendar calendar, TimePickerDialog.OnTimeSetListener onTimeSetListener) {
+        if (calendar == null) {
             calendar = Calendar.getInstance();
         }
-        TimePickerDialog dialog = new TimePickerDialog(context, onTimeSetListener,calendar.get(Calendar.HOUR), calendar.get(Calendar.MINUTE), true);
+        TimePickerDialog dialog = new TimePickerDialog(context, onTimeSetListener, calendar.get(Calendar.HOUR), calendar.get(Calendar.MINUTE), true);
         dialog.show();
     }
 
