@@ -1,5 +1,6 @@
 package top.onehundred.android.kits.demo;
 
+import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.TestLooperManager;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         ok.init(getApplication());
 
+        BluetoothAdapter adapter;
     }
 
     @OnClick({R.id.btn_app, R.id.btn_dialog, R.id.btn_datetime, R.id.btn_intents, R.id.btn_encytpt, R.id.btn_density})

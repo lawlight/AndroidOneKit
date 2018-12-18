@@ -2,8 +2,10 @@ package top.onehundred.android.kits;
 
 import android.app.Application;
 import android.content.Context;
+import android.graphics.Color;
 
 import top.onehundred.android.kits.kits.AppKit;
+import top.onehundred.android.kits.kits.ColorKit;
 import top.onehundred.android.kits.kits.DatetimeKit;
 import top.onehundred.android.kits.kits.DensityKit;
 import top.onehundred.android.kits.kits.DialogKit;
@@ -46,6 +48,12 @@ public class ok {
     public static AppKit appKit() {
         return AppKit.getInstance();
     }
+
+    /**
+     * 颜色工具包
+     * @return
+     */
+    public static ColorKit colorKit() { return ColorKit.getInstance(); }
 
     /**
      * 日期时间工具包
