@@ -1,22 +1,22 @@
-package top.onehundred.android.kits;
+package top.onehundred.android.onekit;
 
 import android.app.Application;
 import android.content.Context;
 import android.graphics.Color;
 
-import top.onehundred.android.kits.kits.AppKit;
-import top.onehundred.android.kits.kits.ColorKit;
-import top.onehundred.android.kits.kits.DatetimeKit;
-import top.onehundred.android.kits.kits.DensityKit;
-import top.onehundred.android.kits.kits.DialogKit;
-import top.onehundred.android.kits.kits.EncryptKit;
-import top.onehundred.android.kits.kits.IntentKit;
-import top.onehundred.android.kits.kits.ListKit;
-import top.onehundred.android.kits.kits.PhoneStateKit;
-import top.onehundred.android.kits.kits.ScreenKit;
-import top.onehundred.android.kits.kits.StringKit;
-import top.onehundred.android.kits.kits.SystemKit;
-import top.onehundred.android.kits.kits.ViewKit;
+import top.onehundred.android.onekit.kits.AppKit;
+import top.onehundred.android.onekit.kits.ColorKit;
+import top.onehundred.android.onekit.kits.DatetimeKit;
+import top.onehundred.android.onekit.kits.DensityKit;
+import top.onehundred.android.onekit.kits.DialogKit;
+import top.onehundred.android.onekit.kits.EncryptKit;
+import top.onehundred.android.onekit.kits.IntentKit;
+import top.onehundred.android.onekit.kits.ListKit;
+import top.onehundred.android.onekit.kits.PhoneStateKit;
+import top.onehundred.android.onekit.kits.ScreenKit;
+import top.onehundred.android.onekit.kits.StringKit;
+import top.onehundred.android.onekit.kits.SystemKit;
+import top.onehundred.android.onekit.kits.ViewKit;
 
 /**
  * onekit 工具库的导航类，可以从此类调用，也可以单独使用每个工具包

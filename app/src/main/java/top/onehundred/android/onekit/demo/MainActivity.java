@@ -1,4 +1,4 @@
-package top.onehundred.android.kits.demo;
+package top.onehundred.android.onekit.demo;
 
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
@@ -11,13 +11,13 @@ import android.widget.Button;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import top.onehundred.android.kits.demo.activities.AppSystemActivity;
-import top.onehundred.android.kits.demo.activities.DatetimeActivity;
-import top.onehundred.android.kits.demo.activities.DensityActivity;
-import top.onehundred.android.kits.demo.activities.DialogActivity;
-import top.onehundred.android.kits.demo.activities.EncryptActivity;
-import top.onehundred.android.kits.demo.activities.IntentActivity;
-import top.onehundred.android.kits.ok;
+import top.onehundred.android.onekit.demo.activities.AppSystemActivity;
+import top.onehundred.android.onekit.demo.activities.DatetimeActivity;
+import top.onehundred.android.onekit.demo.activities.DensityActivity;
+import top.onehundred.android.onekit.demo.activities.DialogActivity;
+import top.onehundred.android.onekit.demo.activities.EncryptActivity;
+import top.onehundred.android.onekit.demo.activities.IntentActivity;
+import top.onehundred.android.onekit.ok;
 
 public class MainActivity extends AppCompatActivity {
 

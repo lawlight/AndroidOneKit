@@ -1,4 +1,4 @@
-package top.onehundred.android.kits.demo.activities;
+package top.onehundred.android.onekit.demo.activities;
 
 import android.content.ActivityNotFoundException;
 import android.os.Bundle;
@@ -7,8 +7,8 @@ import android.view.View;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import top.onehundred.android.kits.demo.R;
-import top.onehundred.android.kits.ok;
+import top.onehundred.android.onekit.demo.R;
+import top.onehundred.android.onekit.ok;
 
 public class IntentActivity extends AppCompatActivity {
 

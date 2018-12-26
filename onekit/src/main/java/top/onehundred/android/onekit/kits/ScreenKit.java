@@ -1,4 +1,4 @@
-package top.onehundred.android.kits.kits;
+package top.onehundred.android.onekit.kits;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,7 +8,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
 
-import top.onehundred.android.kits.ok;
+import top.onehundred.android.onekit.ok;
 
 /**
  * 屏幕相关方法工具包

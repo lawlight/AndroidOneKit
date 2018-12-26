@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="top.onehundred.android.kits.demo.activities.AppSystemActivity">
+    tools:context="top.onehundred.android.onekit.demo.activities.AppSystemActivity">
 
     <TextView
         android:padding="8dp"

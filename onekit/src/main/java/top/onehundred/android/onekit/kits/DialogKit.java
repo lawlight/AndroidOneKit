@@ -1,4 +1,4 @@
-package top.onehundred.android.kits.kits;
+package top.onehundred.android.onekit.kits;
 
 import android.app.Activity;
 import android.app.ProgressDialog;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="top.onehundred.android.kits.demo">
+    package="top.onehundred.android.onekit.demo">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -16,19 +16,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="top.onehundred.android.kits.demo.MainActivity">
+        <activity android:name="top.onehundred.android.onekit.demo.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="top.onehundred.android.kits.demo.activities.AppSystemActivity" />
-        <activity android:name="top.onehundred.android.kits.demo.activities.IntentActivity" />
-        <activity android:name="top.onehundred.android.kits.demo.activities.DialogActivity" />
-        <activity android:name="top.onehundred.android.kits.demo.activities.DensityActivity" />
-        <activity android:name="top.onehundred.android.kits.demo.activities.EncryptActivity" />
-        <activity android:name="top.onehundred.android.kits.demo.activities.DatetimeActivity"></activity>
+        <activity android:name="top.onehundred.android.onekit.demo.activities.AppSystemActivity" />
+        <activity android:name="top.onehundred.android.onekit.demo.activities.IntentActivity" />
+        <activity android:name="top.onehundred.android.onekit.demo.activities.DialogActivity" />
+        <activity android:name="top.onehundred.android.onekit.demo.activities.DensityActivity" />
+        <activity android:name="top.onehundred.android.onekit.demo.activities.EncryptActivity" />
+        <activity android:name="top.onehundred.android.onekit.demo.activities.DatetimeActivity"></activity>
     </application>
 
 </manifest>

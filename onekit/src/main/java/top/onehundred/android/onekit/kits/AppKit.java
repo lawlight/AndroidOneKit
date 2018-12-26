@@ -1,9 +1,9 @@
-package top.onehundred.android.kits.kits;
+package top.onehundred.android.onekit.kits;
 
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
-import top.onehundred.android.kits.ok;
+import top.onehundred.android.onekit.ok;
 
 /**
  * 应用信息工具类

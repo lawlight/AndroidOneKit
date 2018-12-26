@@ -1,4 +1,4 @@
-package top.onehundred.android.kits.demo.activities;
+package top.onehundred.android.onekit.demo.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,9 +6,9 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import top.onehundred.android.kits.demo.R;
-import top.onehundred.android.kits.kits.PhoneStateKit;
-import top.onehundred.android.kits.ok;
+import top.onehundred.android.onekit.demo.R;
+import top.onehundred.android.onekit.kits.PhoneStateKit;
+import top.onehundred.android.onekit.ok;
 
 public class AppSystemActivity extends AppCompatActivity {
 

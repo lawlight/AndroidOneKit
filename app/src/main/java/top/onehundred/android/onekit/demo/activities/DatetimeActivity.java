@@ -1,4 +1,4 @@
-package top.onehundred.android.kits.demo.activities;
+package top.onehundred.android.onekit.demo.activities;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -21,8 +21,8 @@ import java.util.Date;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import top.onehundred.android.kits.demo.R;
-import top.onehundred.android.kits.ok;
+import top.onehundred.android.onekit.demo.R;
+import top.onehundred.android.onekit.ok;
 
 /**
  * 日期格式转换demo

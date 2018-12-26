@@ -1,4 +1,4 @@
-package top.onehundred.android.kits.kits;
+package top.onehundred.android.onekit.kits;
 
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -8,7 +8,7 @@ import android.provider.Settings;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import top.onehundred.android.kits.ok;
+import top.onehundred.android.onekit.ok;
 
 /**
  * 系统信息工具类
